@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danışman Bul</title>
+</head>
+<body>
+    <h1>Danışman Hocanı Bul</h1>
+    <label for="studentNumber">Öğrenci Numaranızı Girin:</label>
+    <input type="text" id="studentNumber" placeholder="Öğrenci Numarası">
+    <button onclick="findAdvisor()">Bul</button>
+    <p id="advisorResult"></p>
+
+    <script>
+        const studentData = {
+            "2012249003": "Prof. Dr. A. Kamil TANRIKULU",
+            "2014499062": "Prof. Dr. A. Kamil TANRIKULU",
+            "2016232325": "Prof. Dr. A. Kamil TANRIKULU",
+            "2019232045": "Prof. Dr. İsmail H. ÇAĞATAY"
+            // Diğer öğrenci numaralarını ve danışmanları burada ekleyin
+        };
+
+        function findAdvisor() {
+            const studentNumber = document.getElementById("studentNumber").value.trim();
+            const advisor = studentData[studentNumber];
+            const resultElement = document.getElementById("advisorResult");
+
+            if (advisor) {
+                resultElement.textContent = "Danışman Hocanız: " + advisor;
+            } else {
+                resultElement.textContent = "Öğrenci numarası bulunamadı.";
+            }
+        }
+    </script>
+</body>
+</html>
