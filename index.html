@@ -9,7 +9,7 @@
 <body>
     <h1>Danışman Hocanı Bul</h1>
     <label for="studentNumber">Öğrenci Numaranızı Girin:</label>
-    <input type="text" id="studentNumber" placeholder="Öğrenci Numarası">
+    <input type="text" id="studentNumber" placeholder="Öğrenci Numarası"> onkeyup="handleEnter(event)">
     <button onclick="findAdvisor()">Bul</button>
     <p id="advisorResult"></p>
 
@@ -708,7 +708,7 @@
 "2022562803": "Doç. Dr. Baki BAĞRIAÇIK"         
 };
 
-        function findAdvisor() {
+		function findAdvisor() {
             const studentNumber = document.getElementById("studentNumber").value.trim();
             console.log("Girilen öğrenci numarası: " + studentNumber); // Öğrenci numarasını konsola yazdırır
             const advisor = studentData[studentNumber];
@@ -720,7 +720,12 @@
                 resultElement.textContent = "Öğrenci numarası bulunamadı.";
             }
         }
+
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                findAdvisor();
+            }
+        }
     </script>
 </body>
 </html>
-
